@@ -1,4 +1,4 @@
- app = "npontu"
+app = "npontu"
 primary_region = "lhr"
 
 [build]
@@ -15,6 +15,10 @@ primary_region = "lhr"
   SESSION_DRIVER = "file"
   SESSION_LIFETIME = "120"
   QUEUE_CONNECTION = "sync"
+
+[mounts]
+  source = "npontu_data"
+  destination = "/data"
 
 [http_service]
   internal_port = 8080
