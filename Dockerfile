@@ -41,6 +41,8 @@ RUN mkdir -p /var/www/database
 RUN touch /var/www/database/database.sqlite
 RUN echo "DB_CONNECTION=sqlite" >> .env
 RUN echo "DB_DATABASE=/var/www/database/database.sqlite" >> .env
+RUN echo "APP_URL=https://npontu.fly.dev" >> .env
+RUN echo "ASSET_URL=https://npontu.fly.dev" >> .env
 RUN php artisan migrate --force
 
 # Set permissions
