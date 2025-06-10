@@ -36,9 +36,12 @@ RUN npm run build
 RUN cp .env.example .env
 RUN php artisan key:generate
 
-# Configure environment for SQLite
+# Configure environment for SQLite and create database
+RUN mkdir -p /var/www/database
+RUN touch /var/www/database/database.sqlite
 RUN echo "DB_CONNECTION=sqlite" >> .env
 RUN echo "DB_DATABASE=/var/www/database/database.sqlite" >> .env
+RUN php artisan migrate --force
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
