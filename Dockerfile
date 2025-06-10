@@ -39,7 +39,6 @@ RUN php artisan key:generate
 # Configure environment for SQLite
 RUN echo "DB_CONNECTION=sqlite" >> .env
 RUN echo "DB_DATABASE=/var/www/database/database.sqlite" >> .env
-RUN touch database/database.sqlite
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
