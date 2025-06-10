@@ -32,7 +32,8 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install
 RUN npm run build
 
-# Generate application key
+# Copy .env.example to .env and generate application key
+RUN cp .env.example .env
 RUN php artisan key:generate
 
 # Set permissions
